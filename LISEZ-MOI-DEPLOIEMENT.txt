@@ -1,0 +1,72 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║                     PRONOEXPERT - GUIDE DEPLOIEMENT              ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+📦 DEUX ARCHIVES DISPONIBLES :
+
+1️⃣  pronoexpert-production.zip (181 KB)
+   ✅ Contient TOUT le projet complet
+   ✅ Code source (src/)
+   ✅ Dossier DIST avec l'application compilée
+   ✅ Configuration Supabase (supabase/)
+   ✅ Fichiers de configuration (package.json, vite.config.ts, etc.)
+
+   👉 Utilisez cette archive si vous voulez :
+      - Modifier le code
+      - Développer localement
+      - Avoir tout le projet
+
+2️⃣  DIST-ONLY-DEPLOIEMENT.zip (97 KB)
+   ✅ Contient UNIQUEMENT les fichiers de production
+   ✅ index.html
+   ✅ assets/index-CRL0DmYh.js (344 KB)
+   ✅ assets/index-Dc3wtZr1.css (18 KB)
+
+   👉 Utilisez cette archive pour :
+      - Déployer directement sur Netlify/Vercel/autre hébergeur
+      - Mettre en ligne immédiatement
+      - Pas besoin de npm install ou build
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 DEPLOIEMENT RAPIDE (avec DIST-ONLY-DEPLOIEMENT.zip) :
+
+1. Décompressez DIST-ONLY-DEPLOIEMENT.zip
+2. Uploadez les fichiers sur votre hébergeur :
+   - Netlify : glissez-déposez les fichiers
+   - Vercel : uploadez via leur interface
+   - Serveur web : copiez dans /var/www/html/
+
+═══════════════════════════════════════════════════════════════════
+
+🔧 DEVELOPPEMENT LOCAL (avec pronoexpert-production.zip) :
+
+1. Décompressez pronoexpert-production.zip
+2. Ouvrez un terminal dans le dossier
+3. Installez les dépendances : npm install
+4. Lancez le dev : npm run dev
+5. Compilez pour production : npm run build
+   → Le dossier dist/ sera créé
+
+═══════════════════════════════════════════════════════════════════
+
+⚠️  IMPORTANT - Configuration Supabase :
+
+Votre application utilise Supabase. Les variables d'environnement sont dans .env :
+- VITE_SUPABASE_URL
+- VITE_SUPABASE_ANON_KEY
+
+Ces clés sont déjà intégrées dans le build du dossier dist.
+
+═══════════════════════════════════════════════════════════════════
+
+✅ VERIFICATION :
+
+Après déploiement, votre site devrait avoir :
+- Page d'accueil avec login/inscription
+- Section VIP avec prédictions
+- Statistiques et bankroll
+- Page actualités
+- Panel admin
+
+═══════════════════════════════════════════════════════════════════
