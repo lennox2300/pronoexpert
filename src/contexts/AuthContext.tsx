@@ -12,6 +12,8 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<void>;
   signUp: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
+  getAllUsers: () => Promise<UserProfile[]>;
+  createUser: (email: string, password: string, role?: string, vip?: boolean) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -98,10 +100,58 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();
     if (error) throw error;
+
+    // Récupérer tous les utilisateurs (pour l'admin)
+  const getAllUsers = useCallback(async (): Promise<UserProfile[]> => {
+    try {
+      const { data, error } = await supabase
+        .from('users')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (error) throw error;
+      return data || [];
+    } catch (error: any) {
+      console.error('Error fetching users:', error.message);
+      throw error;
+    }
+  }, []);
+
+  // Créer un nouvel utilisateur (pour l'admin)
+  const createUser = useCallback(async (
+    email: string, 
+    password: string, 
+    role: string = 'user',
+    vip: boolean = false
+  ) => {
+    try {
+      const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+        email: email,
+        password: password,
+        email_confirm: true
+      });
+
+      if (authError) throw authError;
+
+      if (role !== 'user' || vip) {
+        const { error: updateError } = await supabase
+          .from('users')
+          .update({ role, vip })
+          .eq('id', authData.user.id);
+
+        if (updateError) throw updateError;
+      }
+
+      console.log('✅ Utilisateur créé avec succès');
+    } catch (error: any) {
+      console.error('❌ Error creating user:', error.message);
+      throw error;
+    }
+  }, []);
   };
 
   return (
-    <AuthContext.Provider value={{ user, profile, loading, signIn, signUp, signOut }}>
+    <AuthContext.Provider value={{ user, profile, loading, signIn, signUp, signOut, getAllUsers, createUser }}>
       {children}
     </AuthContext.Provider>
   );
