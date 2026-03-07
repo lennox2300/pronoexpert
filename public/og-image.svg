@@ -1,0 +1,46 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Trophy icon -->
+  <g transform="translate(600, 180)">
+    <circle cx="0" cy="0" r="80" fill="#fbbf24" opacity="0.2"/>
+    <path d="M-30,-40 L-30,-20 L-40,-10 L-40,10 L-20,30 L20,30 L40,10 L40,-10 L30,-20 L30,-40 Z M-15,-40 L-15,-50 L15,-50 L15,-40 M-20,30 L-20,40 L-10,50 L10,50 L20,40 L20,30"
+          fill="#fbbf24"
+          stroke="#f59e0b"
+          stroke-width="3"/>
+    <circle cx="0" cy="-15" r="8" fill="#f59e0b"/>
+  </g>
+
+  <!-- Main text -->
+  <text x="600" y="350" font-family="Arial, sans-serif" font-size="90" font-weight="bold" fill="white" text-anchor="middle">
+    PRONO EXPERT
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="36" fill="#d1fae5" text-anchor="middle">
+    Pronostics Sportifs Professionnels
+  </text>
+
+  <!-- Stats badges -->
+  <g transform="translate(300, 500)">
+    <rect x="0" y="0" width="200" height="60" rx="30" fill="rgba(255,255,255,0.15)"/>
+    <text x="100" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">
+      Analyses VIP
+    </text>
+  </g>
+
+  <g transform="translate(700, 500)">
+    <rect x="0" y="0" width="200" height="60" rx="30" fill="rgba(251,191,36,0.3)"/>
+    <text x="100" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">
+      Paris Gagnants
+    </text>
+  </g>
+</svg>
