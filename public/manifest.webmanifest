@@ -1,0 +1,26 @@
+{
+  "name": "PRONO EXPERT",
+  "short_name": "PRONO EXPERT",
+  "description": "Pronostics sportifs professionnels - Football, Tennis, Basketball",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo1.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo1.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["sports", "entertainment"],
+  "lang": "fr-FR"
+}
